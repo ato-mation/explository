@@ -1,9 +1,19 @@
 [build]
+  # 1. Build CRA
+  # 2. Ensure root-site/cakefund exists
+  # 3. Copy CRA build output into root-site/cakefund
   command = "npm run build && mkdir -p root-site/cakefund && cp -r build/* root-site/cakefund/"
   publish = "root-site"
 
 [build.environment]
   NODE_VERSION = "18"
 
+# Disable Netlify's secrets scanning (Firebase keys are not real secrets)
 [secrets]
   scan = false
+
+# Redirect rules for SPA (React Router or deep links)
+[[redirects]]
+  from = "/cakefund/*"
+  to = "/cakefund/index.html"
+  status = 200
