@@ -1,10 +1,9 @@
 [build]
-  command = "npm run build"
-  publish = "build"
+  command = "npm run build && cp -r build ../root-site/cakefund"
+  publish = "root-site"
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Disable or configure secrets scanning
 [secrets]
   scan = false
