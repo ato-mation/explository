@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build && cp -r build ../root-site/cakefund"
+  command = "npm run build && mkdir -p root-site/cakefund && cp -r build/* root-site/cakefund/"
   publish = "root-site"
 
 [build.environment]
